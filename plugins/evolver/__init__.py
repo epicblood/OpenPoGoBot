@@ -5,8 +5,8 @@ from pokemongo_bot import sleep
 # pylint: disable=unused-argument
 
 @manager.on('caught_pokemon', priority=0)
-def _after_catch(event, name=None, bot=None, combat_power=None, pokemon_potential=None):
-    _do_evolve(bot, name)
+def _after_catch(event, bot, pokemon=None):
+    _do_evolve(bot, bot.pokemon_list[pokemon.pokemon_id - 1]['Name'])
 
 @manager.on('after_transfer_pokemon', priority=0)
 def _after_transfer(event, name=None, bot=None):
