@@ -21,11 +21,10 @@
     "distance_unit": "km",
     "evolve_pokemon": true,
     "evolve_filter": [
-        16,
-        19,
-        21,
-        23,
-        133
+        "Pidgey",
+        "Rattata",
+        "Spearow",
+        "Weedle"
     ],
     "item_filter": {
         "1": { "keep": 50 },

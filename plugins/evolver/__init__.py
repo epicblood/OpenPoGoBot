@@ -22,7 +22,8 @@ def _do_evolve(bot, name):
         pokemon_id = base_pokemon['id']
         num_evolve = base_pokemon['requirements']
         pokemon_candies = bot.candies.get(int(pokemon_id), 0)
-        if pokemon_id in bot.config.evolve_filter:
+        evolve_list = map(str.lower, bot.config.evolve_filter)
+        if base_name.lower() in evolve_list or 'all' in evolve_list:
             if num_evolve is None:
                 _log('[#] Can\'t evolve {}'.format(base_name), color='yellow')
                 return
