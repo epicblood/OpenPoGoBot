@@ -25,7 +25,7 @@ def _do_evolve(bot, name):
         evolve_list = [str.lower(str(x)) for x in bot.config.evolve_filter]
         if base_name.lower() in evolve_list or 'all' in evolve_list:
             if num_evolve is None:
-                _log('[#] Can\'t evolve {}'.format(base_name), color='yellow')
+                _log('Can\'t evolve {}'.format(base_name), color='yellow')
                 return
 
             pokemon_evolve = [pokemon for pokemon in pokemon_list if pokemon.pokemon_id is pokemon_id]
