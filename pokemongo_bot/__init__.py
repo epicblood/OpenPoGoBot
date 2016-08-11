@@ -13,7 +13,7 @@ from googlemaps.exceptions import ApiError
 
 from pokemongo_bot import logger, human_behaviour, item_list
 from pokemongo_bot.event_manager import manager
-from pokemongo_bot.utils import filtered_forts, distance, convert_to_utf8
+from pokemongo_bot.utils import filtered_forts, distance
 from pokemongo_bot.human_behaviour import sleep
 from pokemongo_bot.item_list import Item
 from pokemongo_bot.mapper import Mapper
@@ -64,7 +64,9 @@ class PokemonGoBot(object):
         loaded_plugins = sorted(self.plugin_manager.get_loaded_plugins().keys())
         sleep(2)
         logger.log("Plugins loaded: {}".format(loaded_plugins), color="green", prefix="Plugins")
-        logger.log("Events available: {}".format(manager.get_registered_events()), color="green", prefix="Events")
+        if self.config.print_events:
+            logger.log("Events available: {}".format(manager.get_registered_events()), color="green", prefix="Events")
+            manager.print_all_event_pipelines()
 
     def start(self):
         self._setup_logging()
